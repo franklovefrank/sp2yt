@@ -2,12 +2,14 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gsvendsen/spotify-to-youtube.git"
+    "url": "git+https://github.com/franklovefrank/sp2yt"
   },
-  "author": "gsvendsen",
   "name": "spotify-to-youtube",
-  "description": "Site that converts your Spotify playlists to Youtube playlists",
+  "description": "Site that converts Spotify playlists to Youtube playlists",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.18.3"
+  },
   "dependencies": {
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
