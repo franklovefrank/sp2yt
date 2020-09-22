@@ -116,7 +116,6 @@ a {
 }
 
 .media-start {
-	position: absolute;
 	left: -2px;
 	right: -2px;
 	bottom: 0;
@@ -164,6 +163,16 @@ a {
 
 .media-start.button--media-2:hover {
 	color: #000
+}
+
+.media-start.button--media-3 {
+	color: #6ce0ff
+}
+
+.media-start.button--media-3:hover {
+	color: #000;
+	background-color: #6ce0ff;
+	border-color: #6ce0ff
 }
 
 
