@@ -75,16 +75,16 @@ a {
 	}
 }
 
-.media {
+.medias {
 	margin: 2rem -2rem 0;
 	font-size: 0
 }
 
-.media>* {
+.medias>* {
 	font-size: 1rem
 }
 
-.social {
+.media {
 	position: relative;
 	box-sizing: border-box;
 	display: inline-block;
@@ -105,6 +105,7 @@ a {
 }
 
 .media-description {
+  position: relative;
 	display: block;
 	width: auto;
 	margin: 0 0 1.375rem
@@ -116,13 +117,12 @@ a {
 }
 
 .media-start {
-	left: -2px;
-	right: -2px;
+	position: relative;
 	bottom: 0;
 	display: block;
 	vertical-align: baseline;
-	margin: 0 2rem 0;
-	padding: .75em 1em .65em;
+	margin: 0 .8rem 0;
+	padding: .55em .15em .55em;
 	font-size: 1rem;
 	line-height: 1;
 	text-transform: uppercase;
@@ -144,7 +144,7 @@ a {
 }
 
 .media-start.button--media-2 {
-  color: #fff;
+	color: #fff
 }
 
 .media-start.button--media-2::after {
@@ -173,6 +173,66 @@ a {
 	color: #000;
 	background-color: #6ce0ff;
 	border-color: #6ce0ff
+}
+
+@-webkit-keyframes blink-1 {
+	0% {
+		background-color: #f8e71c
+	}
+	50% {
+		background-color: #ff4646
+	}
+}
+
+@keyframes blink-1 {
+	0% {
+		background-color: #f8e71c
+	}
+	50% {
+		background-color: #ff4646
+	}
+}
+
+@media screen and (max-width:840px) {
+	.media {
+		width: 50%;
+		max-width: 100%
+	}
+}
+
+@media screen and (max-width:680px) {
+	.medias {
+		margin-left: 0;
+		margin-right: 0
+	}
+	.media {
+		display: block;
+		width: auto;
+		min-height: 0;
+		padding-left: 0;
+		padding-right: 0
+	}
+	.media-start {
+		margin-left: 0;
+		margin-right: 0
+	}
+}
+
+.credits>p {
+	margin: 0 0 1.375rem;
+	color: rgba(255, 255, 255, .4)
+}
+
+.credits>p a {
+	border-bottom: 1px solid currentColor
+}
+
+.credits>p a:hover {
+	color: #fff
+}
+
+.credits>p:last-child {
+	margin-bottom: 0
 }
 
 
