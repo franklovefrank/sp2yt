@@ -39,21 +39,15 @@ function initClient(){
     var a = document.getElementById('sign-in-or-out-button');
     a.onclick = function () {
       handleAuthClick();
+      return false;
     }
   });
 }
 
 
 function handleAuthClick() {
-  if (GoogleAuth.isSignedIn.get()) {
-    // User is authorized and has clicked 'Sign out' button.
-    GoogleAuth.signOut();
-    clearSelection();
-  } else {
-    // User is not signed in. Start Google auth flow.
     GoogleAuth.signIn();
   }
-}
 
 function revokeAccess(){
   GoogleAuth.disconnect();
