@@ -6,7 +6,6 @@ html {
 }
 
 html {
-	font-family: 'Lab Mono Web', sans-serif;
 	font-size: 1.5vw;
 	color: #fff;
 	line-height: 1.375;
@@ -60,6 +59,7 @@ a {
 }
 
 .info {
+  font-family: 'Lab Mono Web', sans-serif;
 	margin: 0 0 8.25rem
 }
 
@@ -76,6 +76,7 @@ a {
 }
 
 .medias {
+  font-family: 'Lab Mono Web', sans-serif;
 	margin: 2rem -2rem 0;
 	font-size: 0
 }
@@ -248,6 +249,7 @@ a {
   width:40%;
   margin: 15px;
   background-color:#222;
+  font-family: sans-serif;
   color:white;
   padding:20px;
   animation:fadeInUp 1.2s ease-in-out forwards;
