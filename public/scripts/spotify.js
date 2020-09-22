@@ -45,7 +45,8 @@
       });
 
      setTimeout(() => {
-       document.querySelector('#obtain-playlists').addEventListener('click', e => {
+      var a = document.getElementById('obtain-playlists');
+      a.onclick = function () {
           document.querySelector('.playlist-container').innerHTML = "";
           fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
             method: "GET",
@@ -56,8 +57,7 @@
           })
             .then(response => response.json())
             .then(response => {createPlaylistSelection(response, access_token)})
-        })
-     }, 2000)
+     }, 2000});
 
      spotifySignedIn = true;
      youtubeSignedIn && spotifySignedIn ? bothSignedIn = true : ""
