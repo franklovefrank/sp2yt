@@ -71,7 +71,7 @@ function setSigninStatus(isSignedIn){
   }
 }
 
-var updateSigninStatus(isSignedIn){
+function updateSigninStatus(isSignedIn){
   setSigninStatus();
 }
 
