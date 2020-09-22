@@ -36,6 +36,11 @@
           success: (response) => {
             userId = response.id
             $('#spotify-button').html('Signed in');
+            document.querySelector('#login').style.display = 'hidden'
+            document.querySelector('#loggedin').style.display = 'block'
+            // $('#login').hide()
+            // $('#loggedin').show()
+
           }
       });
 
