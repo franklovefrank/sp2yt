@@ -60,7 +60,7 @@ function revokeAccess(){
 }
 
 function setSigninStatus(isSignedIn){
-  const user = GoogleAuth.currentUser.get();
+  var user = GoogleAuth.currentUser.get();
   let isAuthorized = user.hasGrantedScopes(SCOPE);
   if (isAuthorized) {
     document.querySelector('#sign-in-or-out-button').innerHTML = "Signed in"
@@ -71,7 +71,7 @@ function setSigninStatus(isSignedIn){
   }
 }
 
-const updateSigninStatus = isSignedIn => {
+var updateSigninStatus(isSignedIn){
   setSigninStatus();
 }
 
