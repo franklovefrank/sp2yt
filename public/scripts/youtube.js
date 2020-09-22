@@ -41,6 +41,7 @@ function handleAuthClick() {
   if (GoogleAuth.isSignedIn.get()) {
     // User is authorized and has clicked 'Sign out' button.
     GoogleAuth.signOut();
+    $('#sign-in-or-out-button').html('Signed In');
   } else {
     GoogleAuth.signIn();
   }
