@@ -105,7 +105,6 @@ a {
 }
 
 .media-description {
-  position: relative;
 	display: block;
 	width: auto;
 	margin: 0 0 1.375rem
@@ -117,12 +116,14 @@ a {
 }
 
 .media-start {
-	position: relative;
+	position: absolute;
+	left: -2px;
+	right: -2px;
 	bottom: 0;
 	display: block;
 	vertical-align: baseline;
-	margin: 0 .8rem 0;
-	padding: .55em .15em .55em;
+	margin: 0 2rem 0;
+	padding: .75em 1em .65em;
 	font-size: 1rem;
 	line-height: 1;
 	text-transform: uppercase;
@@ -234,51 +235,6 @@ a {
 .credits>p:last-child {
 	margin-bottom: 0
 }
-
-
-@-webkit-keyframes blink-1 {
-	0% {
-		background-color: #f8e71c
-	}
-	50% {
-		background-color: #ff4646
-	}
-}
-
-@keyframes blink-1 {
-	0% {
-		background-color: #f8e71c
-	}
-	50% {
-		background-color: #ff4646
-	}
-}
-
-@media screen and (max-width:840px) {
-	.media {
-		width: 50%;
-		max-width: 100%
-	}
-}
-
-@media screen and (max-width:680px) {
-	.media {
-		margin-left: 0;
-		margin-right: 0
-	}
-	.social {
-		display: block;
-		width: auto;
-		min-height: 0;
-		padding-left: 0;
-		padding-right: 0
-	}
-	.media-start {
-		margin-left: 0;
-		margin-right: 0
-	}
-}
-
 .playlist-container {
   width:100%;
   display:flex;
