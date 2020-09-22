@@ -235,7 +235,7 @@ a {
   width:40%;
   margin: 15px;
   background-color:#222;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:white;
   padding:20px;
   animation:fadeInUp 1.2s ease-in-out forwards;
@@ -247,7 +247,8 @@ a {
 
 .get-songs-button {
   padding:20px;
-  color:white;
+  background-color: #222;
+  color: white;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
 }
 
