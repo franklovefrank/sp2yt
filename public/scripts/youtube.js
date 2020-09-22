@@ -1,19 +1,15 @@
-let GoogleAuth;
-let SCOPE = 'https://www.googleapis.com/auth/youtube.force-ssl';
+var GoogleAuth;
+var SCOPE = 'https://www.googleapis.com/auth/youtube.force-ssl';
 
-function handleClientLoad(){
-  // Load the API's client and auth2 modules.
-  // Call the initClient function after the modules load.
+function handleClientLoad() {
   gapi.load('client:auth2', initClient);
 }
 
-function initClient(){
+function initClient() {
 
   var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest';
 
-  // Initialize the gapi.client object, which app uses to make API requests.
-  // Get API key and client ID from API Console.
-  // 'scope' field specifies space-delimited list of access scopes.
+
   gapi.client.init({
     // ENTER YOUTUBE API KEY HERE
     apiKey: 'AIzaSyCBGFfp1HUEDzpvxHMZteoavvwOkT0BnDM',
@@ -21,7 +17,7 @@ function initClient(){
     'discoveryDocs': [discoveryUrl],
     // ENTER YOUTUBE API CLIENT ID HERE
     'scope': SCOPE
-  }).then(() => {
+  }).then(function () {
     GoogleAuth = gapi.auth2.getAuthInstance();
 
     // Listen for sign-in state changes.
@@ -34,13 +30,9 @@ function initClient(){
     // Call handleAuthClick function when user clicks on
     //      "Sign In/Authorize" button.
 
-
-
-    var a = document.getElementById('sign-in-or-out-button');
-    a.onclick = function () {
+    $('#sign-in-or-out-button').click(function () {
       handleAuthClick();
-      return false;
-    }
+    });
   });
 }
 
@@ -49,29 +41,27 @@ function handleAuthClick() {
   if (GoogleAuth.isSignedIn.get()) {
     // User is authorized and has clicked 'Sign out' button.
     GoogleAuth.signOut();
-    clearSelection();
   } else {
     GoogleAuth.signIn();
   }
 }
 
-function revokeAccess(){
-  GoogleAuth.disconnect();
-}
 
-function setSigninStatus(isSignedIn){
+function setSigninStatus(isSignedIn) {
   var user = GoogleAuth.currentUser.get();
-  let isAuthorized = user.hasGrantedScopes(SCOPE);
+  var isAuthorized = user.hasGrantedScopes(SCOPE);
   if (isAuthorized) {
-    document.querySelector('#sign-in-or-out-button').innerHTML = "Signed in"
-
+    $('#sign-in-or-out-button').html('Signed in');
     youtubeSignedIn = true;
     youtubeSignedIn && spotifySignedIn ? bothSignedIn = true : console.log("nao")
-    bothSignedIn ? document.querySelector('#obtain-playlists').classList.remove('hidden') : console.log("")
+    bothSignedIn ? document.querySelector('#obtain-playlists').classList.remove('hidden') : console.log("");
+  }
+  else{
+    $('#sign-in-or-out-button').html('Sign In');
   }
 }
 
-function updateSigninStatus(isSignedIn){
+function updateSigninStatus(isSignedIn) {
   setSigninStatus();
 }
 
