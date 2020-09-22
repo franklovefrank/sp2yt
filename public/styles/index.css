@@ -220,14 +220,12 @@ a {
 	}
 }
 
-
-}
 .playlist-container {
   width:100%;
   display:flex;
   justify-content: space-evenly;
   flex-wrap:wrap;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 0 20px;
 }
 
@@ -249,7 +247,7 @@ a {
   padding:20px;
   background-color: #222;
   color: white;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .loading-container {
