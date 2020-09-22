@@ -1,37 +1,31 @@
 let GoogleAuth;
 let SCOPE = 'https://www.googleapis.com/auth/youtube.force-ssl';
 
+var CLIENT_ID = '453081527146-m3dri8nd17pnjgrkh016odc8km3tr3tb.apps.googleusercontent.com';
+var API_KEY = 'AIzaSyCBGFfp1HUEDzpvxHMZteoavvwOkT0BnDM';
+var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'
 
-const handleClientLoad = () => {
   // Load the API's client and auth2 modules.
   // Call the initClient function after the modules load.
+function handleClientLoad(){
   gapi.load('client:auth2', initClient);
 }
-
-const initClient = () => {
-
-  var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest';
-
   // Initialize the gapi.client object, which app uses to make API requests.
   // Get API key and client ID from API Console.
   // 'scope' field specifies space-delimited list of access scopes.
+function initClient(){  
   gapi.client.init({  
-      // ENTER YOUTUBE API KEY HERE
-      'apiKey': 'AIzaSyCBGFfp1HUEDzpvxHMZteoavvwOkT0BnDM',
-      'discoveryDocs': [discoveryUrl],
-      // ENTER YOUTUBE API CLIENT ID HERE
-      'clientId': '453081527146-m3dri8nd17pnjgrkh016odc8km3tr3tb.apps.googleusercontent.com',
-      'scope': SCOPE
-
-  }).then(() => {
+      apiKey: API_KEY,
+      clientId: CLIENT_ID,
+      discoveryDocs: [discoveryUrl],
+      scope: SCOPE,
+  }).then(function(){
     GoogleAuth = gapi.auth2.getAuthInstance();
-    console.log("gapi.client.init finished")
-
 
     // Listen for sign-in state changes.
     GoogleAuth.isSignedIn.listen(updateSigninStatus);
 
-    // Handle initial sign-in state. (Determine if user is already signed in.)
+    // Handle initial sign-in state. 
     var user = GoogleAuth.currentUser.get();
     setSigninStatus();
 
