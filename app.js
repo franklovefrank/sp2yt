@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 
 const client_id = process.env.SPOTIFY_API_CLIENTID; // Your client id
 const client_secret = process.env.SPOTIFY_API_SECRET; // Your secret
-const redirect_uri = 'https://sp2yt.herokuapp.com/callback/'; // Your redirect uri
+const redirect_uri = 'http://localhost:8888/callback/'; // Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
@@ -136,4 +136,5 @@ app.get('/refresh_token', (req, res) => {
   });
 });
 
-module.exports = app;
+console.log('Listening on 8888');
+app.listen(8888);
