@@ -1,25 +1,20 @@
-let GoogleAuth;
-let SCOPE = 'https://www.googleapis.com/auth/youtube.force-ssl';
+var GoogleAuth;
+var SCOPE = 'https://www.googleapis.com/auth/youtube.force-ssl';
 
-var CLIENT_ID = '453081527146-m3dri8nd17pnjgrkh016odc8km3tr3tb.apps.googleusercontent.com';
-var API_KEY = 'AIzaSyCBGFfp1HUEDzpvxHMZteoavvwOkT0BnDM';
-var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'
-
-  // Load the API's client and auth2 modules.
-  // Call the initClient function after the modules load.
-function handleClientLoad(){
+// Load the API's client and auth2 modules.
+// Call the initClient function after the modules load.
+function handleClientLoad() {
   gapi.load('client:auth2', initClient);
 }
-  // Initialize the gapi.client object, which app uses to make API requests.
-  // Get API key and client ID from API Console.
-  // 'scope' field specifies space-delimited list of access scopes.
-function initClient(){  
-  gapi.client.init({  
-      apiKey: API_KEY,
-      clientId: CLIENT_ID,
-      discoveryDocs: [discoveryUrl],
-      scope: SCOPE,
-  }).then(function(){
+
+function initClient() {
+  var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest';
+  gapi.client.init({
+    apiKey: 'AIzaSyCBGFfp1HUEDzpvxHMZteoavvwOkT0BnDM',
+    clientId: '453081527146-m3dri8nd17pnjgrkh016odc8km3tr3tb.apps.googleusercontent.com',
+    discoveryDocs: [discoveryUrl],
+    scope: SCOPE,
+  }).then(function () {
     GoogleAuth = gapi.auth2.getAuthInstance();
 
     // Listen for sign-in state changes.
@@ -29,34 +24,35 @@ function initClient(){
     var user = GoogleAuth.currentUser.get();
     setSigninStatus();
 
-    // Call handleAuthClick function when user clicks on
-    //      "Sign In/Authorize" button.
-    document.querySelector('#sign-in-or-out-button').addEventListener('click', () => {
+
+    $('#sign-in-or-out-button').click(function () {
       handleAuthClick();
-    })
+    });
+    $('#revoke-access-button').click(function () {
+      revokeAccess();
+    });
   });
 }
 
-const handleAuthClick = () => {
+
+function handleAuthClick(){
   if (GoogleAuth.isSignedIn.get()) {
-    // User is authorized and has clicked 'Sign out' button.
     GoogleAuth.signOut();
-    clearSelection();
   } else {
-    // User is not signed in. Start Google auth flow.
     GoogleAuth.signIn();
   }
 }
 
-const revokeAccess = () => {
+function revokeAccess(){
   GoogleAuth.disconnect();
 }
 
-const setSigninStatus = isSignedIn => {
+function setSigninStatus(isSignedIn) {
   const user = GoogleAuth.currentUser.get();
   let isAuthorized = user.hasGrantedScopes(SCOPE);
   if (isAuthorized) {
-    document.querySelector('#sign-in-or-out-button').innerHTML = `<img width="45" src="img/youtube_social_icon_dark.png">`
+    $('#sign-in-or-out-button').html('Sign out');
+    $('#revoke-access-button').css('display', 'inline-block');
 
     youtubeSignedIn = true;
     youtubeSignedIn && spotifySignedIn ? bothSignedIn = true : console.log("nao")
@@ -64,7 +60,7 @@ const setSigninStatus = isSignedIn => {
   }
 }
 
-const updateSigninStatus = isSignedIn => {
+function updateSigninStatus(isSignedIn){
   setSigninStatus();
 }
 
@@ -77,11 +73,11 @@ const search = (trackQuery, artistQuery) => {
   });
 
   request.execute(response => {
-    if(response.code == 403){
+    if (response.code == 403) {
       console.error("Error code 403. Query limit reached.")
     } else {
       let videoId = response.items[0].id.videoId;
-      searchResults.push({videoId:videoId})
+      searchResults.push({ videoId: videoId })
     }
   });
 }
@@ -126,7 +122,7 @@ const createPlaylist = playlistData => {
 
       insertPlaylist(playlistData, playlistId);
     } else {
-       console.error("Could not create playlist")
+      console.error("Could not create playlist")
     }
   });
 }
@@ -148,9 +144,9 @@ const addToPlaylist = (videoData, videoId, playlistId) => {
     }
   });
   console.log(`Adding video ${videoId} to playlist`)
-  request.execute(function(response) {
+  request.execute(function (response) {
     console.log(response)
-    if(videoData.length > 0){
+    if (videoData.length > 0) {
       insertPlaylist(videoData, playlistId)
     } else {
       const playlistContainer = document.querySelector('.playlist-container')
