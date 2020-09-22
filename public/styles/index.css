@@ -145,7 +145,7 @@ a {
 }
 
 .media-start.button--media-2 {
-	color: #fff
+  color: #fff;
 }
 
 .media-start.button--media-2::after {
@@ -186,7 +186,7 @@ a {
 }
 
 @media screen and (max-width:840px) {
-	.instrument {
+	.media {
 		width: 50%;
 		max-width: 100%
 	}
