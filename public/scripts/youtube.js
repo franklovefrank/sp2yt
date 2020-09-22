@@ -22,8 +22,11 @@ const initClient = () => {
       // ENTER YOUTUBE API CLIENT ID HERE
       'clientId': '453081527146-m3dri8nd17pnjgrkh016odc8km3tr3tb.apps.googleusercontent.com',
       'scope': SCOPE
+
   }).then(() => {
     GoogleAuth = gapi.auth2.getAuthInstance();
+    console.log("gapi.client.init finished")
+
 
     // Listen for sign-in state changes.
     GoogleAuth.isSignedIn.listen(updateSigninStatus);
