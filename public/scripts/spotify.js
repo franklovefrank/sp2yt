@@ -35,11 +35,7 @@
           },
           success: (response) => {
             userId = response.id
-            document.querySelector('#login').style.display = 'hidden'
-            document.querySelector('#loggedin').style.display = 'block'
-            // $('#login').hide()
-            // $('#loggedin').show()
-
+            $('#spotify-button').html('Signed in');
           }
       });
 

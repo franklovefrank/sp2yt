@@ -22,7 +22,7 @@
           <p>Connect to Spotify</p>
       </div>
 
-        <a href="/login" class="media-start button button--start button--media-1">Sign in</a>
+        <a href="/login" id="spotify button" class="media-start button button--start button--media-1">Sign in</a>
     </article>
       
     <article class="social">
@@ -38,25 +38,7 @@
     <button class="btn btn-default hidden select-button right" id="obtain-playlists">Get Playlists</button>
   </div>
   <!-- Loading SVG -->
-  <div class="loading-container hidden">
-    <svg class="loading-ba" width="100" height="100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"
-      preserveAspectRatio="xMidYMid" class="lds-ripple">
-      <circle cx="50" cy="50" r="35.5533" fill="none" ng-attr-stroke="{{config.c1}}"
-        ng-attr-stroke-width="{{config.width}}" stroke="#28292f" stroke-width="2">
-        <animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="1" keySplines="0 0.2 0.8 1"
-          begin="-0.5s" repeatCount="indefinite"></animate>
-        <animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="1" keySplines="0.2 0 0.8 1"
-          begin="-0.5s" repeatCount="indefinite"></animate>
-      </circle>
-      <circle cx="50" cy="50" r="17.0068" fill="none" ng-attr-stroke="{{config.c2}}"
-        ng-attr-stroke-width="{{config.width}}" stroke="#0a0a0a" stroke-width="2">
-        <animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="1" keySplines="0 0.2 0.8 1"
-          begin="0s" repeatCount="indefinite"></animate>
-        <animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="1" keySplines="0.2 0 0.8 1"
-          begin="0s" repeatCount="indefinite"></animate>
-      </circle>
-    </svg>
-  </div>
+ 
 
   <div class="playlist-container">
   </div>
