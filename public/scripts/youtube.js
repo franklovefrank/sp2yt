@@ -12,8 +12,8 @@ function initClient() {
 
   gapi.client.init({
     // ENTER YOUTUBE API KEY HERE
-    apiKey: 'AIzaSyCcjcXK_gGOhzz0kG0HC9yVneWhGdsiTJA',
-    clientId: '453081527146-m3dri8nd17pnjgrkh016odc8km3tr3tb.apps.googleusercontent.com',
+    apiKey: 'AIzaSyAExBTrx7SduNCgqzUhV4wWs16sUeTq05Y',
+    clientId: '915436957987-bm71csg8m8k8hlkeiipitg3qmijctjaq.apps.googleusercontent.com',
     'discoveryDocs': [discoveryUrl],
     // ENTER YOUTUBE API CLIENT ID HERE
     'scope': SCOPE
