@@ -12,7 +12,7 @@ function initClient() {
 
   gapi.client.init({
     // ENTER YOUTUBE API KEY HERE
-    apiKey: 'AIzaSyCBGFfp1HUEDzpvxHMZteoavvwOkT0BnDM',
+    apiKey: 'AIzaSyCcjcXK_gGOhzz0kG0HC9yVneWhGdsiTJA',
     clientId: '453081527146-m3dri8nd17pnjgrkh016odc8km3tr3tb.apps.googleusercontent.com',
     'discoveryDocs': [discoveryUrl],
     // ENTER YOUTUBE API CLIENT ID HERE
@@ -42,7 +42,8 @@ function handleAuthClick() {
     // User is authorized and has clicked 'Sign out' button.
     GoogleAuth.signOut();
     $('#sign-in-or-out-button').html('Signed In');
-  } else {
+  }
+ else {
     GoogleAuth.signIn();
   }
 }
