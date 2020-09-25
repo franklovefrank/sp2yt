@@ -40,7 +40,7 @@ function initClient() {
 function handleAuthClick() {
   if (GoogleAuth.isSignedIn.get()) {
     // User is authorized and has clicked 'Sign out' button.
-    $('#sign-in-or-out-button').html('Signed In');
+    GoogleAuth.signOut();
   }
  else {
     GoogleAuth.signIn();
@@ -52,7 +52,7 @@ function setSigninStatus(isSignedIn) {
   var user = GoogleAuth.currentUser.get();
   var isAuthorized = user.hasGrantedScopes(SCOPE);
   if (isAuthorized) {
-    $('#sign-in-or-out-button').html('Signed in');
+    $('#sign-in-or-out-button').html('Sign Out');
     youtubeSignedIn = true;
     youtubeSignedIn && spotifySignedIn ? bothSignedIn = true : console.log("nao")
     bothSignedIn ? document.querySelector('#obtain-playlists').classList.remove('hidden') : console.log("");

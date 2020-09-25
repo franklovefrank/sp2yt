@@ -7,7 +7,7 @@ let playlistId = ""
 const clearSelection = () => {
   const playlistContainer = document.querySelector('.playlist-container')
   const obtainButton = document.querySelector('#obtain-playlists')
-  document.querySelector('#sign-in-or-out-button').innerHTML = `Sign In Youtube <img width="45" src="img/youtube_social_icon_dark.png">`
+  document.querySelector('#sign-in-or-out-button').innerHTML = `Sign In Youtube`
   obtainButton.classList.add('hidden')
   playlistContainer.innerHTML = ""
 }
