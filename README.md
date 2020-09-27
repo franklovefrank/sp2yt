@@ -1,6 +1,8 @@
 # Spotify to Youtube
 Web App that converts Spotify playlists to Youtube playlists
 
+https://sp2yt.herokuapp.com
+
 #### Installation:
 1. Clone the repository to your local machine
 2. Run `npm install` in the cloned directory
